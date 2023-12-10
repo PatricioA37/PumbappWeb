@@ -1,0 +1,280 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+
+{% block stylesheets %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard Pumbapp</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                <li class="breadcrumb-item">Dashboard Productores</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- support-section start -->
+                <div class="col-xl-6 col-md-12">
+
+                    <div class="card flat-card">
+    <div class="row-table">
+        <div class="col-sm-6 card-body br">
+            <div class="row">
+                <div class="col-sm-4">
+                    <i class="material-icons-two-tone text-primary mb-1">group</i>
+                </div>
+                <div class="col-sm-8 text-md-center">
+                    <h5 id="productoresCantidad"></h5>
+                    <span>Total Productores</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <i class="material-icons-two-tone text-primary mb-1">unarchive</i>
+                </div>
+                <div class="col-sm-8 text-md-center">
+                    <h5 id="animalesCantidad"></h5>
+                    <span>Total Animales</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <div class="row">
+                         <div class="card">
+                        <div class="card-header">
+                            <h5>Tabla Productores</h5>
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table id="datatable-productores"class="table table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Productor</th>
+                                            <th>Verracos</th>
+                                            <th>Marranas</th>
+                                            <th>lechones</th>
+                                            <th>destete</th>
+                                            <th>total</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id ="TablaAnimales"> </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-xl-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="selectProductor">Seleccionar Productor:</label>
+                            <select id="selectProductor" onchange="onProductorSelected()">
+                                <!-- Opciones del productor se agregarán dinámicamente desde JavaScript -->
+                            </select>
+                        </div>
+                        <div class="card-body">
+                            <h5>Indice promedio natalidad productores</h5>
+                            <div id="account-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- support-section end -->
+                <!-- customer-section start -->
+
+                <div id ="notificacionesContainer" class="col-xl-6 col-md-12">
+
+                    <div class="card feed-card">
+                        <div class="card-header">
+                            <h5>Notificaciones Productores</h5>
+                        </div>
+                        <div class="feed-scroll" style="height:385px;position:relative;">
+                            <div class="card-body">
+                                <div class="row m-b-25 align-items-center">
+                                    <div class="col-auto p-r-0">
+                                        <i data-feather="calendar" class="bg-light-primary feed-icon p-2 wid-30 hei-30"></i>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#!">
+                                            <h6 class="m-b-5">Productor Juan ha ingresado una nueva calendarización de  parto <span class="text-muted float-end f-14">Justo ahora</span></h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row m-b-25 align-items-center">
+                                    <div class="col-auto p-r-0">
+                                        <i data-feather="plus-circle" class="bg-light-danger feed-icon p-2 wid-30 hei-30"></i>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#!">
+                                            <h6 class="m-b-5">Productor Rodrigo ha ingresado una nueva vacuna<span class="text-muted float-end f-14">hace 2 horas</span></h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row m-b-25 align-items-center">
+                                    <div class="col-auto p-r-0">
+                                        <i data-feather="file-text" class="bg-light-success feed-icon p-2 wid-30 hei-30"></i>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#!">
+                                            <h6 class="m-b-5">Producto Juan ha emitido un detalle de parto <span class="text-muted float-end f-14">Justo ahora</span></h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row m-b-25 align-items-center">
+                                    <div class="col-auto p-r-0">
+                                        <i data-feather="bell" class="bg-light-primary feed-icon p-2 wid-30 hei-30"></i>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#!">
+                                            <h6 class="m-b-5">Producto juan tiene nuevos animales al destete<span class="text-muted float-end f-14">hace 4 horas</span></h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row m-b-25 align-items-center">
+                                    <div class="col-auto p-r-0">
+                                        <i data-feather="bell" class="bg-light-primary feed-icon p-2 wid-30 hei-30"></i>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#!">
+                                            <h6 class="m-b-5">Producto Rodrigo tiene nuevos animales al destete<span class="text-muted float-end f-14">hace 5 horas</span></h6>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- customer-section end -->
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+    <script>
+    // Realiza una solicitud AJAX para obtener los datos desde Django
+    async function fetchTotals() {
+        try {
+            const response = await fetch('/contadorTotal/');
+
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud: ${response.statusText}`);
+            }
+
+            const totalsJson = await response.json();
+
+            // Rellena los campos en el HTML con la información del JSON
+            document.getElementById('productoresCantidad').innerText = totalsJson.CantidadTotalProductores;
+            document.getElementById('animalesCantidad').innerText = totalsJson.CantidadTotalAnimales;
+
+        } catch (error) {
+            console.error('Error al obtener los totales:', error);
+        }
+    }
+
+    fetchTotals();
+</script>
+
+
+
+
+
+
+
+
+
+    <script>
+    async function fetchData() {
+        try {
+            const response = await fetch('/tabla/');
+
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud: ${response.statusText}`);
+            }
+
+            const datosJson = await response.json();
+
+            var tabla = document.getElementById("TablaAnimales");
+
+            datosJson.forEach(function (dato, index) {
+                var fila = tabla.insertRow();
+                var celdaNumero = fila.insertCell(0);
+                celdaNumero.innerHTML = index + 1;
+
+                var celdaProductor = fila.insertCell(1);
+                celdaProductor.innerHTML = dato.display_name;
+
+                var tipos = ['Verraco', 'Marrana', 'Lechon', 'Destete'];
+                var total = 0;
+
+                // Agrega una celda para cada tipo en ContadorTipo
+                for (var i = 0; i < tipos.length; i++) {
+                    var tipo = tipos[i];
+                    var celdaContadorTipo = fila.insertCell(i + 2);
+                    var cantidad = dato.ContadorTipo[tipo] || 0;
+                    celdaContadorTipo.innerHTML = cantidad;
+                    total += cantidad;
+                }
+
+                // Agrega la celda "Total" al final
+                var celdaTotal = fila.insertCell(tipos.length + 2);
+                celdaTotal.innerHTML = total;
+            });
+        } catch (error) {
+            console.error('Error al obtener los datos:', error);
+        }
+    }
+
+    fetchData();
+</script>
+
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <script src="/static/assets/js/pages/dashboard-sale.js"></script>
+
+
+    <script src ="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src ="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src ="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+
+
+{% endblock javascripts %}

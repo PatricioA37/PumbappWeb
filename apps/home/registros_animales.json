@@ -1,0 +1,38 @@
+[
+  {
+    "ID": 56,
+    "Peso": 15.7,
+    "Fecha_Ingreso": "23/23/12",
+    "Genero": "Macho",
+    "Tipo": "Lechon",
+    "Raza": "Katre",
+    "Estado_Animal": "Lechon"
+  },
+  {
+    "ID": 2,
+    "Peso": 17.3,
+    "Fecha_Ingreso": "23/11/23",
+    "Genero": "Hembra",
+    "Tipo": "Marrana",
+    "Raza": "Duroc",
+    "Estado_Animal": "Libre Pastoreo"
+  },
+  {
+    "ID": 3,
+    "Peso": 7.3,
+    "Fecha_Ingreso": "25/11/23",
+    "Genero": "Macho",
+    "Tipo": "Lechon",
+    "Raza": "Iberico",
+    "Estado_Animal": "Lechon"
+  },
+  {
+    "ID": 1,
+    "Peso": 17.5,
+    "Fecha_Ingreso": "25/11/2023",
+    "Genero": "Macho",
+    "Tipo": "Verraco",
+    "Raza": "Nashe",
+    "Estado_Animal": "Libre Pastoreo"
+  }
+]
