@@ -1,11 +1,11 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} Dashboard {% endblock %} 
+{% block title %} Dashboard {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 
 {% block stylesheets %}
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
 {% endblock stylesheets %}
 
@@ -37,42 +37,42 @@
                 <div class="col-xl-6 col-md-12">
 
                     <div class="card flat-card">
-    <div class="row-table">
-        <div class="col-sm-6 card-body br">
-            <div class="row">
-                <div class="col-sm-4">
-                    <i class="material-icons-two-tone text-primary mb-1">group</i>
-                </div>
-                <div class="col-sm-8 text-md-center">
-                    <h5 id="productoresCantidad"></h5>
-                    <span>Total Productores</span>
-                </div>
-            </div>
-        </div>
+                        <div class="row-table">
+                            <div class="col-sm-6 card-body br">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="material-icons-two-tone text-primary mb-1">group</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5 id="productoresCantidad"></h5>
+                                        <span>Total Productores</span>
+                                    </div>
+                                </div>
+                            </div>
 
-        <div class="col-sm-6 card-body">
-            <div class="row">
-                <div class="col-sm-4">
-                    <i class="material-icons-two-tone text-primary mb-1">unarchive</i>
-                </div>
-                <div class="col-sm-8 text-md-center">
-                    <h5 id="animalesCantidad"></h5>
-                    <span>Total Animales</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="col-sm-6 card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <i class="material-icons-two-tone text-primary mb-1">unarchive</i>
+                                    </div>
+                                    <div class="col-sm-8 text-md-center">
+                                        <h5 id="animalesCantidad"></h5>
+                                        <span>Total Animales</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
-                         <div class="card">
-                        <div class="card-header">
-                            <h5>Tabla Productores</h5>
-                        </div>
-                        <div class="card-body table-border-style">
-                            <div class="table-responsive">
-                                <table id="datatable-productores"class="table table-dark">
-                                    <thead>
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Tabla Productores</h5>
+                            </div>
+                            <div class="card-body table-border-style">
+                                <div class="table-responsive">
+                                    <table id="datatable-productores" class="table table-dark">
+                                        <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Productor</th>
@@ -83,12 +83,12 @@
                                             <th>total</th>
                                         </tr>
 
-                                    </thead>
-                                    <tbody id ="TablaAnimales"> </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody id="TablaAnimales"></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                     </div>
 
@@ -111,11 +111,10 @@
                 </div>
 
 
-
                 <!-- support-section end -->
                 <!-- customer-section start -->
 
-                <div id ="notificacionesContainer" class="col-xl-6 col-md-12">
+                <div id="notificacionesContainer" class="col-xl-6 col-md-12">
 
                     <div class="card feed-card">
                         <div class="card-header">
@@ -125,31 +124,37 @@
                             <div class="card-body">
                                 <div class="row m-b-25 align-items-center">
                                     <div class="col-auto p-r-0">
-                                        <i data-feather="calendar" class="bg-light-primary feed-icon p-2 wid-30 hei-30"></i>
+                                        <i data-feather="calendar"
+                                           class="bg-light-primary feed-icon p-2 wid-30 hei-30"></i>
                                     </div>
                                     <div class="col">
                                         <a href="#!">
-                                            <h6 class="m-b-5">Productor Juan ha ingresado una nueva calendarización de  parto <span class="text-muted float-end f-14">Justo ahora</span></h6>
+                                            <h6 class="m-b-5">Productor Juan ha ingresado una nueva calendarización de
+                                                parto <span class="text-muted float-end f-14">Justo ahora</span></h6>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="row m-b-25 align-items-center">
                                     <div class="col-auto p-r-0">
-                                        <i data-feather="plus-circle" class="bg-light-danger feed-icon p-2 wid-30 hei-30"></i>
+                                        <i data-feather="plus-circle"
+                                           class="bg-light-danger feed-icon p-2 wid-30 hei-30"></i>
                                     </div>
                                     <div class="col">
                                         <a href="#!">
-                                            <h6 class="m-b-5">Productor Rodrigo ha ingresado una nueva vacuna<span class="text-muted float-end f-14">hace 2 horas</span></h6>
+                                            <h6 class="m-b-5">Productor Rodrigo ha ingresado una nueva vacuna<span
+                                                    class="text-muted float-end f-14">hace 2 horas</span></h6>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="row m-b-25 align-items-center">
                                     <div class="col-auto p-r-0">
-                                        <i data-feather="file-text" class="bg-light-success feed-icon p-2 wid-30 hei-30"></i>
+                                        <i data-feather="file-text"
+                                           class="bg-light-success feed-icon p-2 wid-30 hei-30"></i>
                                     </div>
                                     <div class="col">
                                         <a href="#!">
-                                            <h6 class="m-b-5">Producto Juan ha emitido un detalle de parto <span class="text-muted float-end f-14">Justo ahora</span></h6>
+                                            <h6 class="m-b-5">Producto Juan ha emitido un detalle de parto <span
+                                                    class="text-muted float-end f-14">Justo ahora</span></h6>
                                         </a>
                                     </div>
                                 </div>
@@ -159,7 +164,8 @@
                                     </div>
                                     <div class="col">
                                         <a href="#!">
-                                            <h6 class="m-b-5">Producto juan tiene nuevos animales al destete<span class="text-muted float-end f-14">hace 4 horas</span></h6>
+                                            <h6 class="m-b-5">Producto juan tiene nuevos animales al destete<span
+                                                    class="text-muted float-end f-14">hace 4 horas</span></h6>
                                         </a>
                                     </div>
                                 </div>
@@ -169,7 +175,8 @@
                                     </div>
                                     <div class="col">
                                         <a href="#!">
-                                            <h6 class="m-b-5">Producto Rodrigo tiene nuevos animales al destete<span class="text-muted float-end f-14">hace 5 horas</span></h6>
+                                            <h6 class="m-b-5">Producto Rodrigo tiene nuevos animales al destete<span
+                                                    class="text-muted float-end f-14">hace 5 horas</span></h6>
                                         </a>
                                     </div>
                                 </div>
@@ -191,28 +198,28 @@
 {% block javascripts %}
 
     <script>
-    // Realiza una solicitud AJAX para obtener los datos desde Django
-    async function fetchTotals() {
-        try {
-            const response = await fetch('/contadorTotal/');
+        // Realiza una solicitud AJAX para obtener los datos desde Django
+        async function fetchTotals() {
+            try {
+                const response = await fetch('/contadorTotal/');
 
-            if (!response.ok) {
-                throw new Error(`Error en la solicitud: ${response.statusText}`);
+                if (!response.ok) {
+                    throw new Error(`Error en la solicitud: ${response.statusText}`);
+                }
+
+                const totalsJson = await response.json();
+
+                // Rellena los campos en el HTML con la información del JSON
+                document.getElementById('productoresCantidad').innerText = totalsJson.CantidadTotalProductores;
+                document.getElementById('animalesCantidad').innerText = totalsJson.CantidadTotalAnimales;
+
+            } catch (error) {
+                console.error('Error al obtener los totales:', error);
             }
-
-            const totalsJson = await response.json();
-
-            // Rellena los campos en el HTML con la información del JSON
-            document.getElementById('productoresCantidad').innerText = totalsJson.CantidadTotalProductores;
-            document.getElementById('animalesCantidad').innerText = totalsJson.CantidadTotalAnimales;
-
-        } catch (error) {
-            console.error('Error al obtener los totales:', error);
         }
-    }
 
-    fetchTotals();
-</script>
+        fetchTotals();
+    </script>
 
 
 
@@ -223,57 +230,110 @@
 
 
     <script>
-    async function fetchData() {
-        try {
-            const response = await fetch('/tabla/');
+        async function fetchData() {
+            try {
+                const response = await fetch('/tabla/');
 
-            if (!response.ok) {
-                throw new Error(`Error en la solicitud: ${response.statusText}`);
-            }
-
-            const datosJson = await response.json();
-
-            var tabla = document.getElementById("TablaAnimales");
-
-            datosJson.forEach(function (dato, index) {
-                var fila = tabla.insertRow();
-                var celdaNumero = fila.insertCell(0);
-                celdaNumero.innerHTML = index + 1;
-
-                var celdaProductor = fila.insertCell(1);
-                celdaProductor.innerHTML = dato.display_name;
-
-                var tipos = ['Verraco', 'Marrana', 'Lechon', 'Destete'];
-                var total = 0;
-
-                // Agrega una celda para cada tipo en ContadorTipo
-                for (var i = 0; i < tipos.length; i++) {
-                    var tipo = tipos[i];
-                    var celdaContadorTipo = fila.insertCell(i + 2);
-                    var cantidad = dato.ContadorTipo[tipo] || 0;
-                    celdaContadorTipo.innerHTML = cantidad;
-                    total += cantidad;
+                if (!response.ok) {
+                    throw new Error(`Error en la solicitud: ${response.statusText}`);
                 }
 
-                // Agrega la celda "Total" al final
-                var celdaTotal = fila.insertCell(tipos.length + 2);
-                celdaTotal.innerHTML = total;
-            });
-        } catch (error) {
-            console.error('Error al obtener los datos:', error);
-        }
-    }
+                const datosJson = await response.json();
 
-    fetchData();
-</script>
+                var tabla = document.getElementById("TablaAnimales");
+
+                console.log("estamos en fetchData");
+                console.log(datosJson);
+
+                datosJson.forEach(function (dato, index) {
+                    var fila = tabla.insertRow();
+                    var celdaNumero = fila.insertCell(0);
+                    celdaNumero.innerHTML = index + 1;
+
+                    var celdaProductor = fila.insertCell(1);
+                    celdaProductor.innerHTML = dato.display_name;
+
+                    var tipos = ['Verraco', 'Marrana', 'Lechon', 'Destete'];
+                    var total = 0;
+
+                    // Agrega una celda para cada tipo en ContadorTipo
+                    for (var i = 0; i < tipos.length; i++) {
+                        var tipo = tipos[i];
+                        var celdaContadorTipo = fila.insertCell(i + 2);
+                        var cantidad = dato.ContadorTipo[tipo] || 0;
+                        celdaContadorTipo.innerHTML = cantidad;
+                        total += cantidad;
+                    }
+
+                    // Agrega la celda "Total" al final
+                    var celdaTotal = fila.insertCell(tipos.length + 2);
+                    celdaTotal.innerHTML = total;
+                });
+            } catch (error) {
+                console.error('Error al obtener los datos:', error);
+            }
+        }
+
+        fetchData();
+    </script>
+
+    <script>
+        // Obtener referencia al elemento select
+        var selectProductor = document.getElementById("selectProductor");
+
+        // Datos para poblar el dropdown (puedes obtener estos datos desde Django)
+        var productores = [
+            {id: 1, nombre: "Productor 1"},
+            {id: 2, nombre: "Productor 2"},
+            {id: 3, nombre: "Productor 3"}
+        ];
+
+        // Función para poblar el dropdown
+        function populateDropdown() {
+            // Limpiar opciones existentes
+            selectProductor.innerHTML = "";
+
+            // Agregar una opción por cada elemento en productores
+            for (var i = 0; i < productores.length; i++) {
+                var option = document.createElement("option");
+                option.value = productores[i].id;  // Valor de la opción
+                option.text = productores[i].nombre;  // Texto visible de la opción
+                selectProductor.add(option);
+            }
+        }
+
+        // Llamar a la función para poblar el dropdown
+        populateDropdown();
+
+        // Función que se llama cuando se selecciona un elemento del dropdown
+        function onProductorSelected() {
+            var selectedProductId = selectProductor.value;
+            console.log(selectedProductId);
+            var selectedProductor = productores.find(function (p) {
+                return p.id == selectedProductId;
+            });
+            console.log(selectedProductor);
+
+            //if (selectedProductor) {
+            //    alert("Productor seleccionado: " + selectedProductor.nombre);
+            //} else {
+            //    alert("Selecciona un productor");
+            //}
+
+            //Llamar a la función del otro archivo JavaScript
+            poc3(selectedProductor);
+        }
+
+
+    </script>
 
     <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
     <script src="/static/assets/js/pages/dashboard-sale.js"></script>
 
 
-    <script src ="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src ="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-    <script src ="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
 
 

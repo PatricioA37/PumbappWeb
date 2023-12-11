@@ -16,7 +16,7 @@ from firebase_admin import firestore
 from google.cloud.firestore_v1.document import DocumentReference
 
 # CONFIGURACIÓN FIREBASE
-cred = credentials.Certificate(r'C:\Users\patri\OneDrive\Escritorio\sistema web django Pumbapp\django-dashboard-kit\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
+cred = credentials.Certificate(r'D:\personal\Pato\PumbappWeb\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
 firebase_admin.initialize_app(cred,name='Json')
 db = firestore.client()
 
