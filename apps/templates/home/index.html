@@ -223,13 +223,11 @@
 
 
 
-
-
-
-
-
-
     <script>
+
+        var datosJson, tabla, selectProductor;
+
+
         async function fetchData() {
             try {
                 const response = await fetch('/tabla/');
@@ -237,13 +235,23 @@
                 if (!response.ok) {
                     throw new Error(`Error en la solicitud: ${response.statusText}`);
                 }
+                datosJson = await response.json();
+                tabla = document.getElementById("TablaAnimales");
+                selectProductor = document.getElementById("selectProductor");
+                function populateDropdown() {
+                    // Limpiar opciones existentes
+                    selectProductor.innerHTML = "";
 
-                const datosJson = await response.json();
-
-                var tabla = document.getElementById("TablaAnimales");
-
-                console.log("estamos en fetchData");
-                console.log(datosJson);
+                    // Agregar una opción por cada elemento en productores
+                    for (var i = 0; i < datosJson.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = datosJson[i].ID;  // Valor de la opción
+                        option.text = datosJson[i].display_name;  // Texto visible de la opción
+                        selectProductor.add(option);
+                    }
+                }
+                // Llamar a la función para poblar el dropdown
+                populateDropdown();
 
                 datosJson.forEach(function (dato, index) {
                     var fila = tabla.insertRow();
@@ -274,58 +282,45 @@
             }
         }
 
-        fetchData();
-    </script>
 
-    <script>
-        // Obtener referencia al elemento select
-        var selectProductor = document.getElementById("selectProductor");
-
-        // Datos para poblar el dropdown (puedes obtener estos datos desde Django)
-        var productores = [
-            {id: 1, nombre: "Productor 1"},
-            {id: 2, nombre: "Productor 2"},
-            {id: 3, nombre: "Productor 3"}
-        ];
-
-        // Función para poblar el dropdown
-        function populateDropdown() {
-            // Limpiar opciones existentes
-            selectProductor.innerHTML = "";
-
-            // Agregar una opción por cada elemento en productores
-            for (var i = 0; i < productores.length; i++) {
-                var option = document.createElement("option");
-                option.value = productores[i].id;  // Valor de la opción
-                option.text = productores[i].nombre;  // Texto visible de la opción
-                selectProductor.add(option);
-            }
-        }
-
-        // Llamar a la función para poblar el dropdown
-        populateDropdown();
 
         // Función que se llama cuando se selecciona un elemento del dropdown
-        function onProductorSelected() {
+        async function onProductorSelected() {
+
             var selectedProductId = selectProductor.value;
-            console.log(selectedProductId);
-            var selectedProductor = productores.find(function (p) {
-                return p.id == selectedProductId;
+
+            var selectedProductor = datosJson.find(function (p) {
+                return p.ID == selectedProductId;
             });
             console.log(selectedProductor);
 
             //if (selectedProductor) {
-            //    alert("Productor seleccionado: " + selectedProductor.nombre);
+            //    alert("Productor seleccionado: " + selectedProductor.display_name);
             //} else {
             //    alert("Selecciona un productor");
             //}
 
+            const url = await ('http://127.0.0.1:8000/indiceNatalidad/');
+
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`Error en la solicitud: ${response.statusText}`);
+            }
+
+
+            const jsonData = await response.json();
+            console.log(jsonData);
             //Llamar a la función del otro archivo JavaScript
-            poc3(selectedProductor);
+            updateChartWithData(jsonData, selectedProductId);
+            //poc4(selectedProductor);
+
         }
 
+        fetchData();
 
     </script>
+
 
     <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
     <script src="/static/assets/js/pages/dashboard-sale.js"></script>
