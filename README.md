@@ -1,11 +1,11 @@
 PUMBAPP platafoma web gestion y trazabilidad
 
-## ✨ Construye mediante los siguientes comandos
+##  Construye mediante los siguientes comandos
 
 ```bash
-$ # Get the code
-$ git clone https://github.com/app-generator/django-dashboard-kit.git
-$ cd django-dashboard-kit
+$ # codigo
+$ git clone https://github.com/PatricioA37/PumbappWeb
+$ 
 $
 $ # Virtualenv modules installation (Unix based systems)
 $ virtualenv env
@@ -189,4 +189,3 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 <br />
 
 ---
-[DashboardKit Django](https://appseed.us/product/django-dashboard-kit) - Provided by **AppSeed** [App Generator](https://appseed.us/app-generator).
