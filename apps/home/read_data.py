@@ -10,7 +10,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 # CONFIGURACIÓN FIREBASE
 
-cred = credentials.Certificate(r'C:\Users\patri\OneDrive\Escritorio\sistema web django Pumbapp\django-dashboard-kit\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
+cred = credentials.Certificate(r'C:\Users\Patricio Arias\Documents\proyectos programacion\pumbapp\PumbappWeb\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
@@ -23,7 +23,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 
 # CONFIGURACIÓN FIREBASE
-cred = credentials.Certificate(r'C:\Users\patri\OneDrive\Escritorio\sistema web django Pumbapp\django-dashboard-kit\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
+cred = credentials.Certificate(r'C:\Users\Patricio Arias\Documents\proyectos programacion\pumbapp\PumbappWeb\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
 firebase_admin.initialize_app(cred,name='firebase-lectura')
 
 db = firestore.client()

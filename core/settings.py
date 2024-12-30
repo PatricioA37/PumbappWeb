@@ -20,11 +20,13 @@ CORE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # CONFIGURACIÓN FIREBASE
-firebase_credentials_path = os.path.join(BASE_DIR, r'D:\personal\Pato\PumbappWeb\core\pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
+firebase_credentials_path = os.path.join(BASE_DIR, 'pumbapp-5cf99-firebase-adminsdk-b345t-f3f2056e6e.json')
+print("Firebase credentials path:", firebase_credentials_path)
+
 cred = credentials.Certificate(firebase_credentials_path)
 firebase_admin.initialize_app(cred)
 
-
+ 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
@@ -40,12 +42,14 @@ CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'django.contrib.contenttypes',  # Asegúrate de que esta línea esté presente
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.home'  # Enable the inner home (home)
+    'apps.home',  # o el nombre de tu app personalizada
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -108,6 +112,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Asegúrate de incluir este backend si usas el modelo User por defecto de Django
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
