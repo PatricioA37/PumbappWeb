@@ -49,7 +49,7 @@ for productor in productores:
             # Agrega más campos según sea necesario
         }
 
-        print(datos_parto)
+       # print(datos_parto)
 
 
         # Agregar los datos de parto a la lista

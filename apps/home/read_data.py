@@ -42,7 +42,7 @@ for productor in productores:
     id_productor = productor.id
     nombre = productor.get('display_name')
 
-    print(productor.to_dict())
+   # print(productor.to_dict())
 
     # Obtener la referencia al documento del productor
     productor_ref = db.collection('Productor').document(id_productor)
@@ -74,7 +74,7 @@ for productor in productores:
             # Agrega más campos según sea necesario
         }
 
-        print(datos_parto)
+       # print(datos_parto)
 
         # Agregar los datos de parto a la lista
       #  datos_parto_productor.append(datos_parto)
